@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #01030a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.wrapper {
+    position: absolute;
+    width: 540px;
+    height: 540px;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.field {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    width: 180px;
+    height: 180px;
+    border: 3px solid #fff;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.field1, .field4, .field7 {
+    border-left: transparent;
+}
+
+.field1, .field2, .field3 {
+    border-top: transparent;
+}
+
+.field3, .field6, .field9 {
+    border-right: transparent;
+}
+
+.field7, .field8, .field9 {
+    border-bottom: transparent;
+}
+
+.cross {
+    display: none;
+    position: absolute;
+    left: 15px;
+}
+
+.zero {
+    display: none;
+    width: 130px;
+    height: 130px;
+    border: 7px solid #fff;
+    border-radius: 50%;
+}
+
+.line {
+    position: absolute;
+    background: #fff;
+    width: 150px;
+    height: 5px;
+    border: 4px solid #fff;
+    border-radius: 50px;
+}
+
+.line1 {
+    transform: rotateZ(45deg);
+}
+
+.line2 {
+    transform: rotateZ(-45deg);
+}
+
+.win_line {
+    background: #fff;
+    width: 540px;
+    height: 5px;
+    border: 4px solid #fff;
+    border-radius: 50px;
+    transition: all .4s;
+}
+
+.h_lines, 
+.v_lines {
+    height: 550px;
+    width: 550px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.h_lines {
+    transform: translateX(-541px);
+}
+
+.v_lines {
+    transform: rotate(90deg) translateX(-541px) translateY(4px);   
+}
+
+.d_line1,
+.d_line2 {
+    position: absolute;
+    background: #fff;
+    width: 750px;
+    height: 5px;
+    border: 4px solid #fff;
+    border-radius: 50px;
+    top: 50%;
+}
+
+.d_line1 {
+    transform: rotate(45deg) translateY(73px) translateX(-840px); /*translateX(-78px)*/
+}
+
+.d_line2 {
+    transform: rotate(-45deg) translateY(-75px) translateX(700px); /*translateX(-72px)*/
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.player1, 
+.player2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-size: 50px;
+}
+
+.player_cross {
+    margin-top: 92px;
+}
+
+.cross_line1,
+.cross_line2 {
+    position: relative;
+    background: #fff;
+    width: 150px;
+    height: 5px;
+    border: 4px solid #fff;
+    border-radius: 50px;
+}
+
+.cross_line1 {
+    transform: rotateZ(45deg);
+}
+
+.cross_line2 {
+    transform: rotateZ(-45deg);
+    bottom: 10px;
+}
+
+.player_zero {
+    display: block;
+    width: 130px;
+    height: 130px;
+    border: 7px solid #fff;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+.player1::after,
+.player2::after {
+    position: absolute;
+    content: attr(data);
+    text-transform: uppercase;
+    top: 300px;
+}
+
+#arrow {
+    margin-top: 20px;
+    font-size: 80px;
+    color: #fff;
+    transition: all .5s;
+}
+
+.restart_btn {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 19px;
+    width: 150px;
+    height: 75px;
+    color: #fff;
+    background: #000;
+    bottom: 10px;
+    outline: none;
+    border: 3px solid #fff;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+#restart_arrow {
+    transform: scale(1.3);
+    transition: all .6s;
+}
+
+.restart_btn:hover > #restart_arrow{
+    transform: scale(1.3) rotate(360deg);
+}
+
+.restart_btn:hover {
+    box-shadow: 0px 0px 5px 1px #fff;
+}

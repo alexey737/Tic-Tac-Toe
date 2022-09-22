@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/f5c924f9cd.js" crossorigin="anonymous"></script>
+    <title>TIC-TAC-TOE</title>
+</head>
+<body>
+    <div class="info">
+        <div class="player1">
+            Игрок №1
+            <div class="player_cross">
+                <div class="cross_line1"></div>
+                <div class="cross_line2"></div>
+            </div>
+        </div>
+        
+        <div id="arrow">
+            <i class="fa-solid fa-arrow-left-long"></i>
+        </div>
+        
+        <div class="player2">
+            Игрок №2
+            <div class="player_zero"></div>
+        </div>
+    </div>
+    
+    <div class="wrapper">
+        <div class="container">
+            <div class="field field1" aria-valuetext="1">
+                <div class="cross">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                </div>
+                <div class="zero"></div>
+            </div>
+
+            <div class="field field2" aria-valuetext="2">
+                <div class="cross">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                </div>
+                <div class="zero"></div>
+            </div>
+
+            <div class="field field3" aria-valuetext="3">
+                <div class="cross">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                </div>
+                <div class="zero"></div>
+            </div>
+
+            <div class="field field4" aria-valuetext="4">
+                <div class="cross">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                </div>
+                <div class="zero"></div>
+            </div>
+
+            <div class="field field5" aria-valuetext="5">
+                <div class="cross">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                </div>
+                <div class="zero"></div>
+            </div>
+
+            <div class="field field6" aria-valuetext="6">
+                <div class="cross">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                </div>
+                <div class="zero"></div>
+            </div>
+
+            <div class="field field7" aria-valuetext="7">
+                <div class="cross">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                </div>
+                <div class="zero"></div>
+            </div>
+
+            <div class="field field8" aria-valuetext="8">
+                <div class="cross">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                </div>
+                <div class="zero"></div>
+            </div>
+
+            <div class="field field9" aria-valuetext="9">
+                <div class="cross">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                </div>
+                <div class="zero"></div>
+            </div>
+
+        </div>
+        
+            <div class="win_line d_line1"></div>
+            <div class="win_line d_line2"></div>
+
+        <div class="h_lines">
+            <div class="win_line h_line1"></div>
+            <div class="win_line h_line2"></div>
+            <div class="win_line h_line3" ></div>
+        </div>
+
+        <div class="v_lines">
+            <div class="win_line v_line1" aria-valuetext="1"></div>
+            <div class="win_line v_line2" aria-valuetext="0"></div>
+            <div class="win_line v_line3" aria-valuetext="1"></div>
+        </div>
+
+    </div>
+
+    <button class="restart_btn" type="submit" onclick="restartGame()">
+        Начать заново
+        <i id="restart_arrow" class="fa-solid fa-arrow-rotate-right"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
