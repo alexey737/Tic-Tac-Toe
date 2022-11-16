@@ -1,0 +1,387 @@
+._container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.game {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 15px;
+}
+
+.game__info {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 4px;
+    font-size: 40px;
+    gap: 350px;
+}
+
+.game__arrow {
+    transform-origin: center;
+    transition: transform .5s;
+}
+
+.game__arrow.cross {
+    transform: rotateY(0deg);
+}
+
+.game__arrow.zero {
+    transform: rotateY(180deg);
+}
+
+.game__container {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+}
+
+.game__field {
+    border: 2px solid #fff;
+    height: 160px;
+    width: 160px;
+    cursor: pointer;
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game__field:nth-child(1),
+.game__field:nth-child(2),
+.game__field:nth-child(3){
+    border-top: transparent;
+}
+
+.game__field:nth-child(3),
+.game__field:nth-child(6),
+.game__field:nth-child(9) {
+    border-right: transparent;
+}
+
+.game__field:nth-child(1),
+.game__field:nth-child(4),
+.game__field:nth-child(7){
+    border-left: transparent;
+}
+
+.game__field:nth-child(7),
+.game__field:nth-child(8),
+.game__field:nth-child(9) {
+    border-bottom: transparent;
+}
+
+.game__field.active {
+    pointer-events: none;
+    cursor: default;
+}
+
+.field__cross {
+    transform-origin: center;
+    opacity: 0;
+    animation: playerTurn ease .6s 1 forwards;
+}
+
+.cross__line {
+    width: 140px;
+    height: 4px;
+    border-radius: 50px;
+    background: #fff;
+}
+
+.cross-line1 {
+    transform: translateY(50%) rotate(45deg);
+}
+
+.cross-line2{
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.field__zero {
+    width: 120px;
+    height: 120px;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    animation: playerTurn ease .6s 1 forwards;
+}
+
+.game__win-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.game__win-lines.active {
+    z-index: 2;
+}
+
+.win-lines__h-lines,
+.win-lines__v-lines,
+.win-lines__d-lines {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+}
+
+.win-line {
+    background: #737171;
+    border-radius: 50px;
+    position: relative;
+    opacity: 0;
+    transition: transform .7s .3s, opacity 0s .3s;
+}
+
+.win-line.active {
+    opacity: 1;
+    transform: translate(0);
+}
+
+.win-lines__h-lines {
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h-lines__h-line {
+    width: calc(100% - 4px);
+    height: 6px;
+    transform: translateX(-105%);
+}
+
+.win-lines__v-lines {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.v-lines__v-line {
+    height: calc(100% - 4px);
+    width: 6px;
+    transform: translateY(-105%);
+}
+
+.win-lines__d-lines {
+    justify-content: center;
+    align-items: center;
+}
+
+.d-lines__d-line {
+    position: absolute;
+    width: 671px;
+    height: 6px;
+}
+
+.d-line1 {
+    transform: rotate(45deg) translateX(-105%);
+}
+
+.d-line1.active {
+    transform: rotate(45deg);
+}
+
+.d-line2.active {
+    transform: rotate(-45deg);
+}
+
+.d-line2 {
+    transform: rotate(-45deg) translateX(105%);
+}
+
+.game__winner {
+    font-size: 40px;
+    align-self: center;
+    letter-spacing: 4px;
+}
+
+.game__restart-btn {
+    position: relative;
+    display: inline-block;
+    padding: 30px 0;
+    width: 300px;
+    border-radius: 4px;
+    color: #03e9f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 20px;
+    overflow: hidden;
+    filter: hue-rotate(0deg);
+    transition: all 0.2s linear;
+    background: transparent;
+    align-self: center;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.game__restart-btn span {
+    position: absolute;
+    display: block;
+}
+
+.game__restart-btn span:nth-child(1) {
+     filter: hue-rotate(0deg);
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 3px;
+     background: linear-gradient(90deg, transparent, #3a86ff);
+     animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        left: -100%;
+    }
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.game__restart-btn span:nth-child(2) {
+     filter: hue-rotate(60deg);
+     top: -100%;
+     right: 0;
+     width: 3px;
+     height: 100%;
+     background: linear-gradient(180deg, transparent, #3a86ff);
+     animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+    0% {
+        top: -100%;
+    }
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.game__restart-btn span:nth-child(3) {
+     filter: hue-rotate(120deg);
+     bottom: 0;
+     right: 0;
+     width: 100%;
+     background: linear-gradient(270deg, transparent, #3a86ff);
+     animation: animate3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+    0% {
+        right: -100%;
+        height: 3px;
+    }
+    50%,
+    100% {
+        height: 2px;
+        right: 100%;
+    }
+}
+
+.game__restart-btn span:nth-child(4) {
+     filter: hue-rotate(300deg);
+     bottom: -100%;
+     left: 0;
+     width: 3px;
+     height: 100%;
+     background: linear-gradient(360deg, transparent, #3a86ff);
+     animation: animate4 1s linear infinite;
+     animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+    0% {
+        bottom: -100%;
+    }
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+.game__restart-btn:hover {
+    background: #ffffff;
+    color: #000;
+}
+
+.game__restart-btn:hover span{
+    background: transparent;
+}
+
+@keyframes playerTurn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateY(180deg);
+    }
+}
+
+@media screen and (max-width: 1173px) {
+    .game__info {
+        gap: 200px;
+    }
+}
+
+@media screen and (max-width: 886px) {
+    .game__info {
+        gap: 80px;
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .game {
+        gap: 50px;
+    }
+
+    .game__info {
+        gap: 30px;
+        font-size: 25px;
+    }
+
+    .game__field {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cross__line {
+        width: 90px;
+        height: 3px;
+    }
+
+    .field__zero {
+        width: 75px;
+        height: 75px;
+        border: 3px solid #fff;
+    }
+
+    .d-lines__d-line {
+        position: absolute;
+        width: 418px;
+        height: 6px;
+    }
+
+    .game__winner {
+        font-size: 30px;
+    }
+
+    .game__restart-btn {
+        width: 150px;
+        height: 40px;
+        font-size: 13px;
+        padding: 20px 0 35px 0;
+    }
+}
